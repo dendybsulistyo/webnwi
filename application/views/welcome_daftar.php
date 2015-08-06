@@ -62,52 +62,56 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <div class="bs-example">
 
   <form class="form-horizontal">
+    
+    <?php 
+          $attributes = array('class' => 'form-horizontal');
+          echo form_open( 'registrasi/baru' ); 
+          ?>
 
-
-  <div class="form-group">
+        <div class="form-group">
             <label for="inputPassword" class="control-label col-xs-2">Nama </label>
             <div class="col-xs-6">
-                <input type="text" class="form-control" id="inputPassword" placeholder="Nama Lengkap">
+                <input type="text" name="nama" class="form-control" id="inputPassword" placeholder="Nama Lengkap">
             </div>
         </div>
-
 
         <div class="form-group">
             <label for="inputEmail" class="control-label col-xs-2">Email</label>
             <div class="col-xs-6">
-                <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
             </div>
         </div>
         
         <div class="form-group">
             <label for="inputPassword" class="control-label col-xs-2">Password</label>
             <div class="col-xs-6">
-                <input type="password" class="form-control" id="inputPassword" placeholder="Isi Password Registrasi, Bukan Email">
+                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Isi Password Registrasi, Bukan Email">
             </div>
         </div>
 
         <div class="form-group">
             <label for="inputPassword" class="control-label col-xs-2">Kode NWI-5</label>
             <div class="col-xs-6">
-                <input type="text" class="form-control" id="inputPassword" placeholder="Kode NWI-5">
+                <input type="text" name="kodenwi" class="form-control" id="inputPassword" placeholder="Kode NWI-5">
             </div>
         </div>
 
 
-          <div class="form-group">
+          <!-- <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
                 <div class="checkbox">
                     <label><input type="checkbox"> Remember me</label>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
                 <button type="submit" class="btn btn-primary">Login</button>
             </div>
         </div>
-    </form>
+      
+        <?php echo form_close(); ?>
 </div>
 
 

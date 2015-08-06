@@ -22,4 +22,11 @@ class registrasi extends CI_Controller {
 	{
 		$this->load->view('welcome_daftar');
 	}
+
+	public function baru()
+	{
+		$user_name = $this->input->post( 'user_name' );
+		$this->load->view('welcome_daftar');
+	}
+
 }

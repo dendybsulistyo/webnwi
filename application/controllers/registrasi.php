@@ -25,8 +25,14 @@ class registrasi extends CI_Controller {
 
 	public function baru()
 	{
-		$user_name = $this->input->post( 'user_name' );
+		$user_name 	= $this->input->post('user_name');
+		$email 		= $this->input->post('email');
+		$password 	= $this->input->post('password');
+		$kode_nwi 	= $this->input->post('kode_nwi');
+		
+
 		$this->load->view('welcome_daftar');
+
 	}
 
 }

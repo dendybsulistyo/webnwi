@@ -21,13 +21,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="<?php echo base_url();?>assets/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="<?php echo base_url();?>assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+    <!--
+    $(document).ready(function () {
+     
+    window.setTimeout(function() {
+        $(".alert").fadeTo(1000, 0).slideUp(500, function(){
+            $(this).remove(); 
+        });
+    }, 2000);
+
+    });
+    //-->
+    </script>
+
   </head>
 
   <body>
@@ -46,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?php echo base_url(); ?>index.php/welcome/">Home</a></li>
-           <li><a href="<?php echo base_url(); ?>index.php/member/daftar">Registrasi</a></li>
+           <li><a href="<?php echo base_url(); ?>index.php/registrasi/daftar">Pendaftaran</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/list">List Member</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -60,13 +78,26 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <Br>
 <div class="bs-example">
-
-  <form class="form-horizontal">
     
     <?php 
+          
           $attributes = array('class' => 'form-horizontal');
-          echo form_open( 'registrasi/baru' ); 
-          ?>
+          echo form_open( 'registrasi/baru', $attributes); 
+          
+          // jika sudah mengisi dan sukses
+          if($this->session->flashdata('registrasi_sukses')){
+            ?>
+
+            <!-- konfirmasi sukses daftar via web -->
+            <div class="alert alert-warning fade-in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Terima Kasih !</strong> Pendaftaran Berhasil
+            </div>
+
+
+          <?php 
+            }
+            ?>
 
         <div class="form-group">
             <label for="inputPassword" class="control-label col-xs-2">Nama </label>
@@ -92,7 +123,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group">
             <label for="inputPassword" class="control-label col-xs-2">Kode NWI-5</label>
             <div class="col-xs-6">
-                <input type="text" name="kodenwi" class="form-control" id="inputPassword" placeholder="Kode NWI-5">
+                <input type="text" name="kode_nwi" class="form-control" id="inputPassword" placeholder="Kode NWI-5">
             </div>
         </div>
 

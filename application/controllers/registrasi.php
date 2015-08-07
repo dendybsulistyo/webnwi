@@ -25,13 +25,26 @@ class registrasi extends CI_Controller {
 
 	public function baru()
 	{
-		$user_name 	= $this->input->post('user_name');
+		// entry variabel pendaftaran	
+		$nama 	= $this->input->post('nama');
 		$email 		= $this->input->post('email');
 		$password 	= $this->input->post('password');
 		$kode_nwi 	= $this->input->post('kode_nwi');
-		
 
-		$this->load->view('welcome_daftar');
+		// insert data ke mysql dalam bentuk array
+		//$data = array(
+		//'nama' => $this->input->post('nama'),
+		//'email' => $this->input->post('email'),
+		//'password' => $this->input->post('password')
+		//);
+
+		// transfering data ke model
+		$this->load->model('mregistrasi');
+		$this->mregistrasi->insert_registrasi($nama, $email, $password);
+		
+		// load view
+		$this->session->set_flashdata('registrasi_sukses', 'Registrasi Sukses');
+		redirect('registrasi/daftar','refresh');
 
 	}
 

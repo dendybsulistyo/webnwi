@@ -3,15 +3,21 @@ Apa itu Web NWI 5
 ###################
 
 Source Code ini memuat framework CI yang digunakan untuk membuat sistem registrasi anggota Naked Wolves Indonesia
-Chapter Yogyakarta.
+Chapter Yogyakarta. Data yang ada didalam aplikasi adalah data pribadi dan data kendaraan
+
+
+**********************
+Info Sistem Informasi
+**********************
+
+Jika anda ingin menggunakan, silahkan kontak via emaill untuk mendapatkan struktur database yang dipergunakan untuk aplikasi ini.
 
 
 *******************
-Release Information
+Email
 *******************
 
-Jika anda ingin menggunakan, silahkan kontak emaill kami untuk mendapatkan struktur database yang dipergunakan untuk aplikasi ini.
-
+Dendy B. Sulistyo : dendybsulistyo@gmail.com
 
 *******************
 Server Requirements

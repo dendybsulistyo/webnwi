@@ -21,13 +21,31 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
     <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="<?php echo base_url();?>assets/assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="<?php echo base_url();?>assets/js/ie-emulation-modes-warning.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="<?php echo base_url();?>assets/js/bootstrap.min.js"></script>
+
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+
+    <script type="text/javascript">
+    <!--
+    $(document).ready(function () {
+     
+    window.setTimeout(function() {
+        $(".alert").fadeTo(1000, 0).slideUp(500, function(){
+            $(this).remove(); 
+        });
+    }, 2000);
+
+    });
+    //-->
+    </script>
+
   </head>
 
   <body>
@@ -46,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?php echo base_url(); ?>index.php/welcome/">Home</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/registrasi/daftar">Pendaftaran</a></li>
+           <li><a href="<?php echo base_url(); ?>index.php/registrasi/daftar">Pendaftaran</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/list">List Member</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/login">Login</a></li>
           </ul>
@@ -56,13 +74,46 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
    <br><br> 
    <div class=container>
-	<center>
-	
 	<!-- <img src=<?php echo base_url();?>assets/images/nwi.jpg class="img-responsive img-rounded">-->
-	<h1>NakedWolves Indonesia<Br><br>
-	Chapter Yogyakarta</h1>
+	<h3>Login Member</h3>
 
-	</center>
+<Br>
+<div class="bs-example">
+    
+    <?php 
+          
+          $attributes = array('class' => 'form-horizontal');
+          echo form_open( 'member/auth', $attributes); 
+          
+        ?>
+
+
+        <div class="form-group">
+            <label for="inputEmail" class="control-label col-xs-2">Email</label>
+            <div class="col-xs-6">
+                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <label for="inputPassword" class="control-label col-xs-2">Password</label>
+            <div class="col-xs-6">
+                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password Registrasi">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-xs-offset-2 col-xs-10">
+                <button type="submit" class="btn btn-primary">Login</button>
+            </div>
+        </div>
+      
+        <?php echo form_close(); ?>
+</div>
+
+
+
+
 </div>
 
     <!-- Bootstrap core JavaScript

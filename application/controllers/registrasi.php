@@ -28,7 +28,7 @@ class registrasi extends CI_Controller {
 		// entry variabel pendaftaran	
 		$nama 	= $this->input->post('nama');
 		$email 		= $this->input->post('email');
-		$password 	= $this->input->post('password');
+		$password 	= md5($this->input->post('password'));
 		$kode_nwi 	= $this->input->post('kode_nwi');
 
 		// insert data ke mysql dalam bentuk array

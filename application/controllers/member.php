@@ -22,4 +22,50 @@ class member extends CI_Controller {
 	{
 		$this->load->view('welcome_member');
 	}
+
+	public function login() 
+	{
+		$this->load->view('welcome_login');
+	}
+
+	public function auth()
+	{
+		// variabel input form login 	
+		$email 		= $this->input->post('email');
+		$password 	= md5($this->input->post('password'));
+
+		// todo
+		// ketemu 1 atau tidak
+		// kalau ketemu, session disimpan dan ditampilkan nama nya
+		// kalau tidak redirect lagi ke halaman login sambil kasih flash message
+
+
+		// simpan data ke session
+		$newdata = array(
+                   'email'  => "$email",
+                   'password'  => "$password",
+                   'logged_in' => TRUE
+               );
+
+		// seting session
+		$this->session->set_userdata($newdata);
+
+		// retrieve session
+		$data['session_email'] = $this->session->userdata('email');
+
+		// load view dashboard member
+		$this->load->view('dashboard_member', $data);
+
+	}
+
+	public function logout() 
+	{
+
+		// removing session
+		$this->session->unset_userdata('newdata');
+		redirect('member/login','refresh');
+	}
+
+
+
 }

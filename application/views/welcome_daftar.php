@@ -66,6 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <li class="active"><a href="<?php echo base_url(); ?>index.php/welcome/">Home</a></li>
            <li><a href="<?php echo base_url(); ?>index.php/registrasi/daftar">Pendaftaran</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/list">List Member</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/member/login">Login</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -74,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <br><br> 
    <div class=container>
 	<!-- <img src=<?php echo base_url();?>assets/images/nwi.jpg class="img-responsive img-rounded">-->
-	<h1>Pendaftaran Member</h1>
+	<h3>Pendaftaran Member</h3>
 
 <Br>
 <div class="bs-example">
@@ -127,18 +128,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             </div>
         </div>
 
-
-          <!-- <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-10">
-                <div class="checkbox">
-                    <label><input type="checkbox"> Remember me</label>
-                </div>
-            </div>
-        </div> -->
-
         <div class="form-group">
             <div class="col-xs-offset-2 col-xs-10">
-                <button type="submit" class="btn btn-primary">Login</button>
+                <button type="submit" class="btn btn-primary">Submit </button>
             </div>
         </div>
       

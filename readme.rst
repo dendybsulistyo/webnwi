@@ -6,9 +6,9 @@ Source Code ini memuat framework CI yang digunakan untuk membuat sistem registra
 Chapter Yogyakarta. Data yang ada didalam aplikasi adalah data pribadi dan data kendaraan
 
 
-**********************
-Info Sistem Informasi
-**********************
+************************
+Struktur Table Aplikasi
+************************
 
 Jika anda ingin menggunakan, silahkan kontak via emaill untuk mendapatkan struktur database yang dipergunakan untuk aplikasi ini.
 

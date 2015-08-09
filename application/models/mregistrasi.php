@@ -18,6 +18,16 @@ class mregistrasi extends CI_Model
 
 	///// untuk array pakai --->>>>> $this->db->insert('students', $data);
 	
+	// cek kode kode nwi
+	function cek_kode($kode_nwi) 
+	{
+		$r = $this->db->query("select count(id) as jkode
+								from kode_nwi 
+								where kode_nwi='$kode_nwi' ");
+		return $r->row();
+
+		}
+
 
 
 }

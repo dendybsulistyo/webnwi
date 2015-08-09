@@ -21,7 +21,9 @@ class registrasi extends CI_Controller {
 	public function daftar()
 	{
 		$this->load->view('welcome_daftar');
-	}
+	
+	} // akhir function form pendaftaran
+
 
 	public function baru()
 	{
@@ -29,23 +31,77 @@ class registrasi extends CI_Controller {
 		$nama 	= $this->input->post('nama');
 		$email 		= $this->input->post('email');
 		$password 	= md5($this->input->post('password'));
+
+		// kode nwi harus sesuai dengan yang ada di tabel
 		$kode_nwi 	= $this->input->post('kode_nwi');
 
-		// insert data ke mysql dalam bentuk array
-		//$data = array(
-		//'nama' => $this->input->post('nama'),
-		//'email' => $this->input->post('email'),
-		//'password' => $this->input->post('password')
-		//);
-
-		// transfering data ke model
+		// load tabel
 		$this->load->model('mregistrasi');
-		$this->mregistrasi->insert_registrasi($nama, $email, $password);
 		
-		// load view
-		$this->session->set_flashdata('registrasi_sukses', 'Registrasi Sukses');
-		redirect('registrasi/daftar','refresh');
+		// cek kode verifikasi dulu, ambil dari tabel
+		$r = $this->mregistrasi->cek_kode($kode_nwi);
+		$jkode = $r->jkode;
 
-	}
+			// jika kode cocok
+			if($jkode==1) {
+
+			// insert ke tabel registrasi
+			$this->mregistrasi->insert_registrasi($nama, $email, $password);
+
+			// load view untuk konfirmasi pendaftaran telah berhasil
+			$this->session->set_flashdata('registrasi', 'sukses');
+			
+				// email ke pendaftar	
+				$this->load->view('class.phpmailer')
+				
+				//require_once("class.phpmailer.php");
+				
+				$mail             = new PHPMailer(); // defaults to using php "mail()"
+
+
+
+				$body             = "<h3>Salam Auuuu...</h3> <br>
+                                                Calon Member Naked Wolves Indonesia <br>
+						Akun di nwi5jogja.net milik anda adalah <br><br>
+
+									Nama Lengkap : $nama<br>
+									Email : $email<Br>
+									Password Registrasi : ************<br><br><br>
+
+									Simpan baik baik informasi ini. Terima Kasih<br><br>
+									NWI Chapter Yogyakarta";
+
+				$mail->AddReplyTo("$email","Pendaftaran Akun Member");
+				$mail->SetFrom('nwi.chapter.jogja@gmail.com', 'NWI-5 Yogya');
+				$mail->AddReplyTo("nwi.chapter.jogja@gmail.com","Pendaftaran Akun Member");
+				$address = "$email";
+				$mail->AddAddress($address, "NWI 5 Yogya");
+				$mail->Subject    = "Akun NWI-5 Jogja";
+				$mail->AltBody    = "Gunakan browser/pembaca email yang kompatibel ya ndes "; 
+                                
+                // optional, comment out and test
+				$mail->MsgHTML($body);
+
+				if(!$mail->Send()) {
+				  echo "Pendaftaran Error: " . $mail->ErrorInfo;
+				} else {
+				  echo "Konfirmasi Pendaftaran sudah terkirim !";
+				}
+
+				/// akhir script untuk kirim email 
+
+			}
+
+			// jika kode tidak cocok
+			else {
+			$this->session->set_flashdata('registrasi', 'gagal');
+			
+			}
+
+			// redirect ke halaman pendaftaran
+			redirect('registrasi/daftar','refresh');
+
+	
+	} // akhir pendaftaran baru
 
 }

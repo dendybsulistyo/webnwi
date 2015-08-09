@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           echo form_open( 'registrasi/baru', $attributes); 
           
           // jika sudah mengisi dan sukses
-          if($this->session->flashdata('registrasi_sukses')){
+          if($this->session->flashdata('registrasi') == 'sukses'){
             ?>
 
             <!-- konfirmasi sukses daftar via web -->
@@ -97,6 +97,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
           <?php 
+            }
+            if($this->session->flashdata('registrasi') == 'gagal'){
+              ?>
+            <!-- konfirmasi gagal -->
+            <div class="alert alert-info fade-in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Silahkan Coba Lagi !</strong> Terima kasih
+            </div>
+
+            <?php 
             }
             ?>
 

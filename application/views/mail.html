@@ -1,0 +1,43 @@
+<?php
+require_once("class.phpmailer.php");
+
+$mail             = new PHPMailer(); // defaults to using php "mail()"
+
+$body             = "Salam Auuuu... Calon Member Naked Wolves Indonesia <br>
+						Akun di nwi5jogja.net milik anda adalah";
+
+$output[] = "Akun di nwi5jogja.net milik anda adalah";
+$output[] = "Nama Lengkap :";
+$output[] = "Username :";
+//$body = join("\r\n",$output);
+
+
+//$body             = eregi_replace("[\]",'',$body);
+
+$mail->AddReplyTo("dendybsulistyo@gmail.com","Pendaftaran Akun Member");
+
+$mail->SetFrom('dendy@ugm.ac.id', 'NWI-5 Yogya');
+
+$mail->AddReplyTo("dendybsulistyo@gmail.com","Pendaftaran Akun Member");
+
+$address = "dendybsulistyo@gmail.com";
+
+$mail->AddAddress($address, "NWI 5 Yogya");
+
+$mail->Subject    = "Akun NWI-5 Jogja";
+
+$mail->AltBody    = "Gunakan pembaca email yang kompatibel ya ndes "; // optional, comment out and test
+
+$mail->MsgHTML($body);
+
+//$mail->AddAttachment("images/phpmailer.gif");      // attachment
+//$mail->AddAttachment("images/phpmailer_mini.gif"); // attachment
+
+if(!$mail->Send()) {
+  echo "Mailer Error: " . $mail->ErrorInfo;
+} else {
+  echo "Message sent!";
+}
+?>
+
+

@@ -75,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <br><br> 
    <div class=container>
 	<!-- <img src=<?php echo base_url();?>assets/images/nwi.jpg class="img-responsive img-rounded">-->
-	<h3><?php echo $session_email; ?></h3>
+	<h3><?php echo $session_nama; ?></h3>
 
 <Br>
 

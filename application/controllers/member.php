@@ -21,12 +21,15 @@ class member extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('welcome_member');
-	}
+	
+	} // akhir index
 
 	public function login() 
 	{
 		$this->load->view('welcome_login');
-	}
+	
+	} // akhir login
+
 
 	public function auth()
 	{
@@ -34,29 +37,49 @@ class member extends CI_Controller {
 		$email 		= $this->input->post('email');
 		$password 	= md5($this->input->post('password'));
 
-		// todo
-		// ketemu 1 atau tidak
-		// kalau ketemu, session disimpan dan ditampilkan nama nya
-		// kalau tidak redirect lagi ke halaman login sambil kasih flash message
+		// load model untuk member
+		$this->load->model('mmember');
+
+		$r 				= $this->mmember->cek_auth($email, $password);
+		
+		// data untuk disimpan ke session
+		$nama 			= $r->nama;
+		$data['jemail'] = $r->jemail;
+
+		// ketemu 1
+		if($data['jemail']==1) {
+
+						// simpan data ke session
+						$newdata = array(
+ 						'nama'  		=> "$nama",
+                   		'email'  		=> "$email",
+			            'password'  	=> "$password",
+	                    'logged_in' 	=> TRUE
+				        );
+
+						// seting session
+						$this->session->set_userdata($newdata);
+
+						// retrieve session
+						$data['session_nama'] 	= $this->session->userdata('nama');
+						$data['session_email'] 	= $this->session->userdata('email');
+
+						// load view dashboard member
+						$this->load->view('dashboard_member', $data);
+
+		} // akhir if ketemu 1
+
+		// jika jemail !== 1
+
+					else {
+
+						// redirect ke halaman login 
+						redirect('member/login','refresh');
+
+		} // akhir if jika tidak ketemu 1
 
 
-		// simpan data ke session
-		$newdata = array(
-                   'email'  => "$email",
-                   'password'  => "$password",
-                   'logged_in' => TRUE
-               );
-
-		// seting session
-		$this->session->set_userdata($newdata);
-
-		// retrieve session
-		$data['session_email'] = $this->session->userdata('email');
-
-		// load view dashboard member
-		$this->load->view('dashboard_member', $data);
-
-	}
+	} // akhir auth
 
 	public function logout() 
 	{
@@ -64,7 +87,8 @@ class member extends CI_Controller {
 		// removing session
 		$this->session->unset_userdata('newdata');
 		redirect('member/login','refresh');
-	}
+	
+	} // akhir logout
 
 
 

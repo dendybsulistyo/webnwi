@@ -81,6 +81,37 @@ class member extends CI_Controller {
 
 	} // akhir auth
 
+
+
+	public function personal()
+	{
+		
+						// retrieve session
+						$data['session_nama'] 	= $this->session->userdata('nama');
+						$data['session_email'] 	= $this->session->userdata('email');
+
+						// load view dashboard member
+						$this->load->view('dashboard_personal', $data);
+
+
+	} // akhir personal
+
+
+	public function kendaraan()
+	{
+		
+						// retrieve session
+						$data['session_nama'] 	= $this->session->userdata('nama');
+						$data['session_email'] 	= $this->session->userdata('email');
+
+						// load view dashboard member
+						$this->load->view('dashboard_kendaraan', $data);
+
+
+	} // akhir kendaraan
+
+
+
 	public function logout() 
 	{
 

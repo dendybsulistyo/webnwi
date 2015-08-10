@@ -28,7 +28,7 @@ class registrasi extends CI_Controller {
 	public function baru()
 	{
 		// entry variabel pendaftaran	
-		$nama 	= $this->input->post('nama');
+		$nama 		= $this->input->post('nama');
 		$email 		= $this->input->post('email');
 		$password 	= md5($this->input->post('password'));
 
@@ -52,41 +52,39 @@ class registrasi extends CI_Controller {
 			$this->session->set_flashdata('registrasi', 'sukses');
 			
 				// email ke pendaftar	
-				$this->load->view('class.phpmailer')
+				//$this->load->view('class.phpmailer');
 				
 				//require_once("class.phpmailer.php");
 				
-				$mail             = new PHPMailer(); // defaults to using php "mail()"
+				//$mail             = new PHPMailer(); // defaults to using php "mail()"
 
+				//$body             = "<h3>Salam Auuuu...</h3> <br>
+                //                                Calon Member Naked Wolves Indonesia <br>
+				//		Akun di nwi5jogja.net milik anda adalah <br><br>
 
+				//					Nama Lengkap : $nama<br>
+				//					Email : $email<Br>
+				//					Password Registrasi : ************<br><br><br>
 
-				$body             = "<h3>Salam Auuuu...</h3> <br>
-                                                Calon Member Naked Wolves Indonesia <br>
-						Akun di nwi5jogja.net milik anda adalah <br><br>
+				//					Simpan baik baik informasi ini. Terima Kasih<br><br>
+				//					NWI Chapter Yogyakarta";
 
-									Nama Lengkap : $nama<br>
-									Email : $email<Br>
-									Password Registrasi : ************<br><br><br>
-
-									Simpan baik baik informasi ini. Terima Kasih<br><br>
-									NWI Chapter Yogyakarta";
-
-				$mail->AddReplyTo("$email","Pendaftaran Akun Member");
-				$mail->SetFrom('nwi.chapter.jogja@gmail.com', 'NWI-5 Yogya');
-				$mail->AddReplyTo("nwi.chapter.jogja@gmail.com","Pendaftaran Akun Member");
-				$address = "$email";
-				$mail->AddAddress($address, "NWI 5 Yogya");
-				$mail->Subject    = "Akun NWI-5 Jogja";
-				$mail->AltBody    = "Gunakan browser/pembaca email yang kompatibel ya ndes "; 
+				//$mail->AddReplyTo("$email","Pendaftaran Akun Member");
+				//$mail->SetFrom('norepy@nwi5jogja.net', 'NWI-5 Yogya');
+				//$mail->AddReplyTo("norepy@nwi5jogja.net","Pendaftaran Akun Member");
+				//$address = "$email";
+				//$mail->AddAddress($address, "NWI 5 Yogya");
+				//$mail->Subject    = "Akun NWI-5 Jogja";
+				//$mail->AltBody    = "Gunakan browser/pembaca email yang kompatibel ya ndes "; 
                                 
                 // optional, comment out and test
-				$mail->MsgHTML($body);
+				//$mail->MsgHTML($body);
 
-				if(!$mail->Send()) {
-				  echo "Pendaftaran Error: " . $mail->ErrorInfo;
-				} else {
-				  echo "Konfirmasi Pendaftaran sudah terkirim !";
-				}
+				//if(!$mail->Send()) {
+				//echo $mail->ErrorInfo;
+				//} else {
+				//  echo "Konfirmasi Pendaftaran sudah terkirim !";
+				//}
 
 				/// akhir script untuk kirim email 
 

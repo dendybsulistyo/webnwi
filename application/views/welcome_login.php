@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?php echo base_url(); ?>index.php/welcome/">Home</a></li>
            <li><a href="<?php echo base_url(); ?>index.php/registrasi/daftar">Pendaftaran</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/member/list">List Member</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/member/list_member">List Member</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/login">Login</a></li>
           </ul>
         </div><!--/.nav-collapse -->
@@ -82,29 +82,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     
     <?php 
           
-          $attributes = array('class' => 'form-horizontal');
+          $attributes = array('class' => 'form');
           echo form_open( 'member/auth', $attributes); 
           
         ?>
 
 
         <div class="form-group">
-            <label for="inputEmail" class="control-label col-xs-2">Email</label>
-            <div class="col-xs-6">
+            <label for="inputEmail" class="control-label col-xs-4">Email</label>
+            <div class="col-xs-8">
                 <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
             </div>
         </div>
-        
+        <br>
+        <br>
         <div class="form-group">
-            <label for="inputPassword" class="control-label col-xs-2">Password</label>
-            <div class="col-xs-6">
+            <label for="inputPassword" class="control-label col-xs-4">Password</label>
+            <div class="col-xs-8">
                 <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password Registrasi">
             </div>
         </div>
 
+        <br><Br>
         <div class="form-group">
-            <div class="col-xs-offset-2 col-xs-10">
-                <button type="submit" class="btn btn-primary">Login</button>
+            <label for="inputPassword" class="control-label col-xs-4"></label>
+            <div class="col-xs-offset-4">
+                <button type="submit" class="btn btn-primary">Login </button>
             </div>
         </div>
       

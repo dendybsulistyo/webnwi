@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?php echo base_url(); ?>index.php/welcome/">Home</a></li>
            <li><a href="<?php echo base_url(); ?>index.php/member/daftar">Registrasi</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/member/list">List Member</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/member/list_member">List Member</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

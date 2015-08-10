@@ -75,115 +75,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <br><br> 
    <div class=container>
 	<!-- <img src=<?php echo base_url();?>assets/images/nwi.jpg class="img-responsive img-rounded">-->
-	<h3><?php echo "Dashboard Member NWI 5"; ?></h3>
+	<h3>Form Data Kendaraan</h3>
 
 <Br>
 
-<form class="form-horizontal">
-  
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Nama Lengkap</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"><?php echo $session_nama; ?></p>
-    </div>
-  </div>
 
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Nama Panggilan</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Tempat Tanggal Lahir</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Golongan Darah</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Jenis Kelamin</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Status</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Agama</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Alamat</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Kode Pos</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Telepon Rumah</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Handphone</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Pekerjaan</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Bergabung Sejak</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-
-
-
-
-</form>
 
 
 

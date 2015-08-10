@@ -31,6 +31,13 @@ class member extends CI_Controller {
 	} // akhir login
 
 
+	public function list_member() 
+	{
+		$this->load->view('list_member');
+	
+	} // akhir list_member
+
+
 	public function auth()
 	{
 		// variabel input form login 	
@@ -81,7 +88,18 @@ class member extends CI_Controller {
 
 	} // akhir auth
 
+	public function dashboard_home()
+	{
+		
+						// retrieve session
+						$data['session_nama'] 	= $this->session->userdata('nama');
+						$data['session_email'] 	= $this->session->userdata('email');
 
+						// load view dashboard member
+						$this->load->view('dashboard_member', $data);
+
+
+	} // akhir personal
 
 	public function personal()
 	{
@@ -95,7 +113,6 @@ class member extends CI_Controller {
 
 
 	} // akhir personal
-
 
 	public function kendaraan()
 	{

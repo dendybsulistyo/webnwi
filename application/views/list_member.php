@@ -63,10 +63,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="<?php echo base_url(); ?>index.php/member/dashboard_home">Home</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/member/personal">Personal</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/member/kendaraan">Kendaraan</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/member/logout">Logout</a></li>
+            <li class="active"><a href="<?php echo base_url(); ?>index.php/welcome/">Home</a></li>
+           <li><a href="<?php echo base_url(); ?>index.php/registrasi/daftar">Pendaftaran</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/member/list_member">List Member</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/member/login">Login</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -75,117 +75,41 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <br><br> 
    <div class=container>
 	<!-- <img src=<?php echo base_url();?>assets/images/nwi.jpg class="img-responsive img-rounded">-->
-	<h3><?php echo "Dashboard Member NWI 5"; ?></h3>
+	<h3>List Member</h3>
 
 <Br>
 
-<form class="form-horizontal">
-  
-  <div class="form-group">
-    <label class="col-sm-2 control-label">Nama Lengkap</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"><?php echo $session_nama; ?></p>
-    </div>
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Nama Panggilan</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Tempat Tanggal Lahir</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Golongan Darah</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Jenis Kelamin</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Status</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Agama</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Alamat</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Kode Pos</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Telepon Rumah</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Handphone</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Pekerjaan</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-<div class="form-group">
-      <label class="col-sm-2 control-label">Bergabung Sejak</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
-
-
-
-
-
-</form>
-
-
+<div class="bs-example" data-example-id="condensed-table">
+    <table class="table table-condensed">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Username</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">1</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">2</th>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <th scope="row">3</th>
+          <td colspan="2"></td>
+          <td></td>
+        </tr>
+      </tbody>
+    </table>
+  </div><!-- /example -->
 
 
 

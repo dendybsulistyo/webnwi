@@ -1,6 +1,5 @@
-##################################
-Web Member NWI Chapter Yogyakarta
-################################## 
+
+<h1>Web Member NWI Chapter Yogyakarta</h1>
 
 Source Code ini memuat framework CI yang digunakan untuk membuat sistem registrasi anggota Naked Wolves Indonesia
 Chapter Yogyakarta. Data yang ada didalam aplikasi adalah data pribadi dan data kendaraan

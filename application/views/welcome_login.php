@@ -73,46 +73,34 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </nav>
 
    <br><br> 
+
+
    <div class=container>
 	<!-- <img src=<?php echo base_url();?>assets/images/nwi.jpg class="img-responsive img-rounded">-->
 	<h3>Login Member</h3>
 
 <Br>
-<div class="bs-example">
+
     
-    <?php 
-          
-          $attributes = array('class' => 'form');
-          echo form_open( 'member/auth', $attributes); 
-          
+    <?php  
+          $attributes = array('class' => 'form-horizontal');
+          echo form_open( 'member/auth', $attributes);       
         ?>
-
-
+        <div class=col-lg-8>
         <div class="form-group">
-            <label for="inputEmail" class="col-xs-2">Email</label>
-            <div class="col-xs-6">
-                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
-            </div>
+            <label for="exampleInputEmail1">Email </label>
+            <input type="email" class="form-control" name=email id="exampleInputEmail1" placeholder="Enter email" />
         </div>
-        <br>
-        <br>
+        
         <div class="form-group">
-            <label for="inputPassword" class=" col-xs-2">Password</label>
-            <div class="col-xs-6">
-                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password Registrasi">
-            </div>
+            <label for="exampleInputPassword1">Password</label>
+            <input type="password" class="form-control" name=password id="exampleInputPassword1" placeholder="Password" />
         </div>
 
-        <br><Br>
-        <div class="form-group">
-            <label for="inputPassword" class=" col-xs-2"></label>
-            <div class="col-xs-6">
-                <button type="submit" class="btn btn-primary">Login </button>
-            </div>
-        </div>
-      
-        <?php echo form_close(); ?>
-</div>
+        <button type="submit" class="btn btn-warning"> Login </button>
+        </div> 
+    <?php echo form_close(); ?>
+
 
 
 

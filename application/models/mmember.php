@@ -26,10 +26,11 @@ class mmember extends CI_Model
 	///// untuk array pakai --->>>>> $this->db->insert('students', $data);
 	
 
+	// ketemu 1 atau tidak
 	function cek_member($session_id) {
-		$r = $this->db->query("select id from member where id='$session_id' ");
+		$r = $this->db->query("select count(id) as id from member where id='$session_id' ");
 
-		return $r->num_rows();
+		return $r->row();
 	}	
 
 
@@ -89,10 +90,15 @@ class mmember extends CI_Model
 								where 
 								id='$session_id' ");
 
-
 		}
 
 
+	// list member
+	function list_member() {
+		$r = $this->db->query("select nama,tgl_daftar from registrasi order by nama");
+
+		return $r;
+	}	
 
 
 }

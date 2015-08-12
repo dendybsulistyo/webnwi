@@ -82,7 +82,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
    <?php 
           
-          $attributes = array('class' => 'form-horizontal');
+          $attributes = array('class' => 'col-lg-8 form-horizontal');
           echo form_open( 'member/update_personal', $attributes); 
           
           // jika sudah mengisi dan sukses
@@ -111,101 +111,79 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             ?>
 
             <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Nama </label>
-            <div class="col-xs-6">
-                <input type="text" name="nama" class="form-control"  placeholder="Nama Lengkap" 
+            <label for="exampleInputEmail1">Nama </label>
+             <input type="text" name="nama" class="form-control"  placeholder="Nama Lengkap" 
                 value="<?php if(isset($session_nama)) echo $session_nama; ?>">
             </div>
-            </div>
-
 
             <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Panggilan </label>
-            <div class="col-xs-6">
-                <input type="text" name="panggilan" class="form-control" placeholder="Nama Panggilan" 
+            <label for="exampleInputEmail1">Panggilan </label>
+             <input type="text" name="panggilan" class="form-control" placeholder="Nama Panggilan" 
                 value="<?php if(isset($panggilan)) echo $panggilan; ?>">
             </div>
-             </div>
 
             <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Tempat Lahir </label>
-            <div class="col-xs-6">
-                <input type="text" name="tmp_lahir" class="form-control" placeholder="Tempat Lahir" 
+            <label for="exampleInputEmail1">Tempat Lahir </label>
+            <input type="text" name="tmp_lahir" class="form-control" placeholder="Tempat Lahir" 
                 value="<?php if(isset($tmp_lahir)) echo $tmp_lahir; ?>">
             </div>
-             </div>
+
 
             <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Tanggal Lahir </label>
-            <div class="col-xs-2">
-                <input type="text" maxlength=10 name="tgl_lahir" class="form-control" placeholder="dd-mm-yyyy" 
+            <label for="exampleInputEmail1">Tanggal Lahir </label>
+            <input type="text" maxlength=10 name="tgl_lahir" class="form-control" placeholder="dd-mm-yyyy" 
                 value="<?php if(isset($tgl_lahir)) echo $tgl_lahir; ?>">
             </div>
-             </div>
 
-             <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Gol Darah </label>
-            <div class="col-xs-2">
-                <input type="text" maxlength=2 name="gol_darah" class="form-control" placeholder="" 
+            <div class="form-group">
+            <label for="exampleInputEmail1">Gol Darah </label>
+            <input type="text" maxlength=2 name="gol_darah" class="form-control" placeholder="" 
                 value="<?php if(isset($gol_darah)) echo $gol_darah; ?>">
             </div>
-             </div>
 
-              <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Jenis Kelamin </label>
-            <div class="col-xs-2">
-                <input type="text" maxlength=1 name="jenis_kelamin" class="form-control" placeholder="P / W" 
+            <div class="form-group">
+            <label for="exampleInputEmail1">Jenis Kelamin </label>
+             <input type="text" maxlength=1 name="jenis_kelamin" class="form-control" placeholder="P / W" 
                 value="<?php if(isset($jenis_kelamin)) echo $jenis_kelamin; ?>">
             </div>
-             </div>
+
 
             <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Alamat </label>
-            <div class="col-xs-6">
-                <input type="text" name="alamat" class="form-control" placeholder="Alamat Rumah" 
+            <label for="exampleInputEmail1">Alamat </label>
+              <input type="text" name="alamat" class="form-control" placeholder="Alamat Rumah" 
                 value="<?php if(isset($alamat)) echo $alamat; ?>">
             </div>
-             </div>
-
+     
              <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Kode Pos </label>
-            <div class="col-xs-4">
-                <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos" 
+            <label for="exampleInputEmail1">Kode Pos </label>
+             <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos" 
                 value="<?php if(isset($kode_pos)) echo $kode_pos; ?>">
             </div>
-             </div>
 
-              <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Telpon </label>
-            <div class="col-xs-4">
-                <input type="text"  name="telpon" class="form-control" placeholder="Telpon Rumah" 
+             <div class="form-group">
+            <label for="exampleInputEmail1">Telpon </label>
+             <input type="text"  name="telpon" class="form-control" placeholder="Telpon Rumah" 
                 value="<?php if(isset($telpon)) echo $telpon; ?>">
             </div>
-             </div>
 
-              <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Handphone </label>
-            <div class="col-xs-4">
-                <input type="text"  name="no_hp" class="form-control" placeholder="No HP" 
+
+             <div class="form-group">
+            <label for="exampleInputEmail1">Handphone </label>
+              <input type="text"  name="no_hp" class="form-control" placeholder="No HP" 
                 value="<?php if(isset($no_hp)) echo $no_hp; ?>">
             </div>
-             </div>
 
-               <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Pekerjaan </label>
-            <div class="col-xs-6">
-                <input type="text"  name="pekerjaan" class="form-control" placeholder="Pekerjaan" 
+             <div class="form-group">
+            <label for="exampleInputEmail1">Pekerjaan </label>
+             <input type="text"  name="pekerjaan" class="form-control" placeholder="Pekerjaan" 
                 value="<?php if(isset($pekerjaan)) echo $pekerjaan; ?>">
             </div>
-             </div>
 
             <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Gabung </label>
-            <div class="col-xs-2">
-                <input type="text" maxlength=10 name="gabung" class="form-control" placeholder="dd-mm-yyyy" 
+            <label for="exampleInputEmail1">Gabung </label>
+             <input type="text" maxlength=10 name="gabung" class="form-control" placeholder="dd-mm-yyyy" 
                 value="<?php if(isset($gabung)) echo $gabung; ?>">
             </div>
-             </div>
       
 
              <div class="form-group">

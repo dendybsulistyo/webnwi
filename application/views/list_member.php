@@ -83,30 +83,28 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <table class="table table-condensed">
       <thead>
         <tr>
-          <th>#</th>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Username</th>
+          <th>No</th>
+          <th>Nama Lengkap</th>
+          <th>Tanggal Daftar</th>
         </tr>
       </thead>
+
+ <!-- tampilan multi pakai foreach ($list_notulen->result() as $row) {} -->
+
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td></td>
-          <td></td>
-          <td></td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2"></td>
-          <td></td>
-        </tr>
+      
+        <?php
+        $no=1;
+        foreach ($r->result() as $row) {  
+        echo "<tr>
+                <td>".$no.
+              "<td>".strtoupper($row->nama)."</td>
+              <td>$row->tgl_daftar</td>
+              </tr>";
+          $no=$no+1;
+        }
+        ?>
+
       </tbody>
     </table>
   </div><!-- /example -->

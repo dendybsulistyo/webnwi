@@ -33,7 +33,12 @@ class member extends CI_Controller {
 
 	public function list_member() 
 	{
-		$this->load->view('list_member');
+
+		// load model untuk member
+		$this->load->model('mmember');
+		$data['r'] = $this->mmember->list_member();
+
+		$this->load->view('list_member', $data);
 	
 	} // akhir list_member
 
@@ -253,7 +258,7 @@ class member extends CI_Controller {
 			// cek sudah ada belum 
 			$r = $this->mmember->cek_member($session_id);
 
-			if($r='1') {
+			if($r->id=="1") {
 
 				// update ke tabel member
 				$this->mmember->update_personal($session_id,  $nama, $panggilan, $tmp_lahir, $tgl_lahir, 
@@ -291,6 +296,8 @@ class member extends CI_Controller {
 
 
 	} // akhir kendaraan
+
+
 
 
 

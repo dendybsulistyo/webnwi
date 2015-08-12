@@ -89,24 +89,24 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
         <div class="form-group">
-            <label for="inputEmail" class="control-label col-xs-4">Email</label>
-            <div class="col-xs-8">
+            <label for="inputEmail" class="col-xs-2">Email</label>
+            <div class="col-xs-6">
                 <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
             </div>
         </div>
         <br>
         <br>
         <div class="form-group">
-            <label for="inputPassword" class="control-label col-xs-4">Password</label>
-            <div class="col-xs-8">
+            <label for="inputPassword" class=" col-xs-2">Password</label>
+            <div class="col-xs-6">
                 <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Password Registrasi">
             </div>
         </div>
 
         <br><Br>
         <div class="form-group">
-            <label for="inputPassword" class="control-label col-xs-4"></label>
-            <div class="col-xs-offset-4">
+            <label for="inputPassword" class=" col-xs-2"></label>
+            <div class="col-xs-6">
                 <button type="submit" class="btn btn-primary">Login </button>
             </div>
         </div>

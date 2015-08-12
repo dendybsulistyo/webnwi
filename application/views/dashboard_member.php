@@ -79,44 +79,82 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 <Br>
 
-<form class="form-horizontal">
+ <!-- tampilan multi pakai foreach ($list_notulen->result() as $row) {} -->
+
+   <?php 
+          
+          $attributes = array('class' => 'form-horizontal');
+          echo form_open( 'member/update_personal', $attributes); 
+          
+          // jika sudah mengisi dan sukses
+          if($this->session->flashdata('member') == 'sukses'){
+            ?>
+
+            <!-- konfirmasi sukses daftar via web -->
+            <div class="alert alert-warning fade-in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Terima Kasih !</strong> Update Berhasil
+            </div>
+
+
+          <?php 
+            }
+            if($this->session->flashdata('member') == 'gagal'){
+              ?>
+            <!-- konfirmasi gagal -->
+            <div class="alert alert-info fade-in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Silahkan Coba Lagi !</strong> Terima kasih
+            </div>
+
+            <?php 
+            }
+            ?>
   
   <div class="form-group">
-    <label class="col-sm-2 control-label">Nama Lengkap</label>
+    <label class="col-sm-2 control-label">Nama</label>
     <div class="col-sm-10">
-      <p class="form-control-static"><?php echo $session_nama; ?></p>
+      <p class="form-control-static"><?php if(isset($session_nama)) echo $session_nama; ?></p>
     </div>
   </div>
 
   <div class="form-group">
-      <label class="col-sm-2 control-label">Nama Panggilan</label>
+      <label class="col-sm-2 control-label">Panggilan</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($panggilan)) echo $panggilan; ?></p>
     </div>  
   </div>
 
   <div class="form-group">
-      <label class="col-sm-2 control-label">Tempat Tanggal Lahir</label>
+      <label class="col-sm-2 control-label">Tempat Lahir</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($tmp_lahir)) echo $tmp_lahir; ?></p>
     </div>  
   </div>
 
   <div class="form-group">
-      <label class="col-sm-2 control-label">Golongan Darah</label>
+      <label class="col-sm-2 control-label">Tgl Lahir</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($tgl_lahir)) echo $tgl_lahir; ?></p>
+    </div>  
+  </div>
+
+
+  <div class="form-group">
+      <label class="col-sm-2 control-label">Gol. Darah</label>
+    <div class="col-sm-10">
+      <p class="form-control-static"><?php if(isset($gol_darah)) echo $gol_darah; ?></p>
     </div>  
   </div>
 
 <div class="form-group">
       <label class="col-sm-2 control-label">Jenis Kelamin</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($jenis_kelamin)) echo $jenis_kelamin; ?></p>
     </div>  
   </div>
 
-  <div class="form-group">
+  <!-- <div class="form-group">
       <label class="col-sm-2 control-label">Status</label>
     <div class="col-sm-10">
       <p class="form-control-static"></p>
@@ -128,54 +166,48 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="col-sm-10">
       <p class="form-control-static"></p>
     </div>  
-  </div>
+  </div> -->
 
 <div class="form-group">
       <label class="col-sm-2 control-label">Alamat</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($alamat)) echo $alamat; ?></p>
     </div>  
   </div>
 
 <div class="form-group">
       <label class="col-sm-2 control-label">Kode Pos</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($kode_pos)) echo $kode_pos; ?></p>
     </div>  
   </div>
 
   <div class="form-group">
-      <label class="col-sm-2 control-label">Telepon Rumah</label>
+      <label class="col-sm-2 control-label">Tel. Rumah</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($telpon)) echo $telpon; ?></p>
     </div>  
   </div>
 
   <div class="form-group">
-      <label class="col-sm-2 control-label">Handphone</label>
+      <label class="col-sm-2 control-label">No HP</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($no_hp)) echo $no_hp; ?></p>
     </div>  
   </div>
 
   <div class="form-group">
       <label class="col-sm-2 control-label">Pekerjaan</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($pekerjaan)) echo $pekerjaan; ?></p>
     </div>  
   </div>
 
-  <div class="form-group">
-      <label class="col-sm-2 control-label">Email</label>
-    <div class="col-sm-10">
-      <p class="form-control-static"></p>
-    </div>  
-  </div>
 
 <div class="form-group">
-      <label class="col-sm-2 control-label">Bergabung Sejak</label>
+      <label class="col-sm-2 control-label">Gabung Sejak</label>
     <div class="col-sm-10">
-      <p class="form-control-static"></p>
+      <p class="form-control-static"><?php if(isset($gabung)) echo $gabung; ?></p>
     </div>  
   </div>
 

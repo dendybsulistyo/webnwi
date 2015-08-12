@@ -1,6 +1,6 @@
 
-<p align=center>
-![alt tag] (https://github.com/dendybsulistyo/webnwi/blob/master/logo_nwi5.png)
+<p align="center">
+<img src=https://github.com/dendybsulistyo/webnwi/blob/master/logo_nwi5.png>
 </p>
 
 <h2>Web Member NWI Chapter Yogyakarta</h2>

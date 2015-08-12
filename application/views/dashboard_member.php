@@ -65,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?php echo base_url(); ?>index.php/member/dashboard_home">Home</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/personal">Personal</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/member/foto">Foto </a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/kendaraan">Kendaraan</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/logout">Logout</a></li>
           </ul>
@@ -211,7 +212,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     </div>  
   </div>
 
+<br>
+<h3>Data Kendaraan</h3>
 
+<div class="form-group">
+      <label class="col-sm-2 control-label">No Polisi</label>
+    <div class="col-sm-10">
+      <p class="form-control-static"><?php if(isset($no_polisi)) echo $no_polisi; ?></p>
+    </div>  
+  </div>
+
+<div class="form-group">
+      <label class="col-sm-2 control-label">No STNK</label>
+    <div class="col-sm-10">
+      <p class="form-control-static"><?php if(isset($no_stnk)) echo $no_stnk; ?></p>
+    </div>  
+  </div>
 
 
 

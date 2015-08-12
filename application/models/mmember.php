@@ -35,13 +35,42 @@ class mmember extends CI_Model
 
 
 	function dashboard_member($session_id) {
-		$r = $this->db->query("select *
-								 from member 
-								 where id='$session_id' ");
+		$r = $this->db->query("select 
+									a.id, 
+									a.panggilan,
+									a.tmp_lahir,
+									a.tgl_lahir,
+									a.gol_darah,
+									a.jenis_kelamin,
+									a.alamat,
+									a.kode_pos,
+									a.telpon,
+									a.no_hp,
+									a.pekerjaan,
+									a.gabung,
+									b.no_stnk,
+									b.no_polisi
+								 from member a, kendaraan b 
+								 where 
+								 a.id=b.id and  
+								 a.id='$session_id' ");
 
 
 		return $r->row();
 	}	
+
+		function dashboard_kendaraan($session_id) {
+		$r = $this->db->query("select id,
+									no_stnk,
+									no_polisi
+								 from kendaraan  
+								 where 
+								 id='$session_id' ");
+
+
+		return $r->row();
+	}	
+
 
 
 
@@ -91,6 +120,44 @@ class mmember extends CI_Model
 								id='$session_id' ");
 
 		}
+
+
+
+	//// update data kendaraan
+	function update_kendaraan($session_id, $no_polisi, $no_stnk)  
+	{
+
+		// entry data ke tabel kendaraan
+		$this->db->query("update kendaraan set 
+								no_polisi='$no_polisi',
+								no_stnk='$no_stnk'
+
+								where 
+								id='$session_id' ");
+
+		}
+
+
+	//// insert data kendaraan
+	function insert_kendaraan($session_id, $no_polisi, $no_stnk) 
+	{ 
+		
+		// entry data ke tabel kendaraan
+		$this->db->query("insert into kendaraan(id, no_polisi, no_stnk) 
+							values 
+							('$session_id','$no_polisi','$no_stnk') ");
+
+
+		}
+
+
+
+	// ketemu 1 atau tidak
+	function cek_kendaraan($session_id) {
+		$r = $this->db->query("select count(id) as id from kendaraan where id='$session_id' ");
+
+		return $r->row();
+	}
 
 
 	// list member

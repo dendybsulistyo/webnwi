@@ -110,39 +110,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             ?>
 
-        <div class="form-group">
-            <label for="inputPassword" class=" col-xs-2">Nama </label>
-            <div class="col-xs-8">
-                <input type="text" name="nama" class="form-control" id="inputPassword" placeholder="Nama Lengkap">
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label for="inputEmail" class=" col-xs-2">Email</label>
-            <div class="col-xs-8">
-                <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+            <div class=col-lg-8>
+             <div class="form-group">
+            <label for="exampleInputEmail1">Nama </label>
+             <input type="text" name="nama" class="form-control"  placeholder="Nama Lengkap">
             </div>
-        </div>
+
+
+            <div class="form-group">
+            <label for="exampleInputEmail1">Email </label>
+             <input type="text" name="email" class="form-control"  placeholder="Email">
+            </div>
+
+
+            <div class="form-group">
+            <label for="exampleInputEmail1">Password </label>
+             <input type="password" name="password" class="form-control"  placeholder="Bukan Password Email">
+            </div>
         
-        <div class="form-group">
-            <label for="inputPassword" class=" col-xs-2">Password</label>
-            <div class="col-xs-8">
-                <input type="password" name="password" class="form-control" id="inputPassword" placeholder="Isi Password Registrasi, Bukan Email">
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label for="inputPassword" class="col-xs-2">Kode NWI-5</label>
-            <div class="col-xs-8">
-                <input type="text" name="kode_nwi" class="form-control" id="inputPassword" placeholder="Kode NWI-5">
+            <div class="form-group">
+            <label for="exampleInputEmail1">Kode NWI </label>
+             <input type="text" name="kode_nwi" class="form-control"  placeholder="Kode ada di group">
             </div>
-        </div>
 
         <div class="form-group">
             <label for="inputPassword" class="col-xs-2"></label>
             <div class="col-xs-4">
                 <button type="submit" class="btn btn-primary">Submit </button>
             </div>
+        </div>
         </div>
       
         <?php echo form_close(); ?>

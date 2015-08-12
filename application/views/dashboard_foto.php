@@ -65,7 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?php echo base_url(); ?>index.php/member/dashboard_home">Home</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/personal">Personal</a></li>
-            <li><a href="<?php echo base_url(); ?>index.php/member/foto">Foto</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/member/foto">Foto </a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/kendaraan">Kendaraan</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/logout">Logout</a></li>
           </ul>
@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <br><br> 
    <div class=container>
 	<!-- <img src=<?php echo base_url();?>assets/images/nwi.jpg class="img-responsive img-rounded">-->
-	<h3>Form Data Personal</h3>
+	<h3>Foto Personil</h3>
 
 <Br>
 
@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <?php 
           
           $attributes = array('class' => 'col-lg-8 form-horizontal');
-          echo form_open( 'member/update_personal', $attributes); 
+          echo form_open( 'member/update_foto', $attributes); 
           
           // jika sudah mengisi dan sukses
           if($this->session->flashdata('member') == 'sukses'){
@@ -112,80 +112,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             ?>
 
             <div class="form-group">
-            <label for="exampleInputEmail1">Nama </label>
-             <input type="text" name="nama" class="form-control"  placeholder="Nama Lengkap" 
-                value="<?php if(isset($session_nama)) echo $session_nama; ?>">
+            <label for="exampleInputEmail1">File Scan Foto Ukuran 4x6 </label>
+             <input type="file" name="no_polisi" class="form-control"  placeholder="" 
+                value="<?php if(isset($file_foto)) echo $file_foto; ?>">
             </div>
 
-            <div class="form-group">
-            <label for="exampleInputEmail1">Panggilan </label>
-             <input type="text" name="panggilan" class="form-control" placeholder="Nama Panggilan" 
-                value="<?php if(isset($panggilan)) echo $panggilan; ?>">
-            </div>
-
-            <div class="form-group">
-            <label for="exampleInputEmail1">Tempat Lahir </label>
-            <input type="text" name="tmp_lahir" class="form-control" placeholder="Tempat Lahir" 
-                value="<?php if(isset($tmp_lahir)) echo $tmp_lahir; ?>">
-            </div>
-
-
-            <div class="form-group">
-            <label for="exampleInputEmail1">Tanggal Lahir </label>
-            <input type="text" maxlength=10 name="tgl_lahir" class="form-control" placeholder="dd-mm-yyyy" 
-                value="<?php if(isset($tgl_lahir)) echo $tgl_lahir; ?>">
-            </div>
-
-            <div class="form-group">
-            <label for="exampleInputEmail1">Gol Darah </label>
-            <input type="text" maxlength=2 name="gol_darah" class="form-control" placeholder="" 
-                value="<?php if(isset($gol_darah)) echo $gol_darah; ?>">
-            </div>
-
-            <div class="form-group">
-            <label for="exampleInputEmail1">Jenis Kelamin </label>
-             <input type="text" maxlength=1 name="jenis_kelamin" class="form-control" placeholder="P / W" 
-                value="<?php if(isset($jenis_kelamin)) echo $jenis_kelamin; ?>">
-            </div>
-
-
-            <div class="form-group">
-            <label for="exampleInputEmail1">Alamat </label>
-              <input type="text" name="alamat" class="form-control" placeholder="Alamat Rumah" 
-                value="<?php if(isset($alamat)) echo $alamat; ?>">
-            </div>
-     
-             <div class="form-group">
-            <label for="exampleInputEmail1">Kode Pos </label>
-             <input type="text" name="kode_pos" class="form-control" placeholder="Kode Pos" 
-                value="<?php if(isset($kode_pos)) echo $kode_pos; ?>">
-            </div>
-
-             <div class="form-group">
-            <label for="exampleInputEmail1">Telpon </label>
-             <input type="text"  name="telpon" class="form-control" placeholder="Telpon Rumah" 
-                value="<?php if(isset($telpon)) echo $telpon; ?>">
-            </div>
-
-
-             <div class="form-group">
-            <label for="exampleInputEmail1">Handphone </label>
-              <input type="text"  name="no_hp" class="form-control" placeholder="No HP" 
-                value="<?php if(isset($no_hp)) echo $no_hp; ?>">
-            </div>
-
-             <div class="form-group">
-            <label for="exampleInputEmail1">Pekerjaan </label>
-             <input type="text"  name="pekerjaan" class="form-control" placeholder="Pekerjaan" 
-                value="<?php if(isset($pekerjaan)) echo $pekerjaan; ?>">
-            </div>
-
-            <div class="form-group">
-            <label for="exampleInputEmail1">Gabung </label>
-             <input type="text" maxlength=10 name="gabung" class="form-control" placeholder="dd-mm-yyyy" 
-                value="<?php if(isset($gabung)) echo $gabung; ?>">
-            </div>
-      
 
              <div class="form-group">
             <label for="inputPassword" class="col-xs-2"></label>
@@ -196,9 +127,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 
       <?php echo form_close(); ?>
-
-
-
 
 
 

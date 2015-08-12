@@ -60,7 +60,7 @@ class member extends CI_Controller {
 		$data['jemail'] = $r->jemail;
 
 		// ketemu 1
-		if($data['jemail']==1) {
+		if($data['jemail']=="1") {
 
 						// simpan data ke session
 						$newdata = array(
@@ -103,24 +103,13 @@ class member extends CI_Controller {
 								'telpon' 			=> "$r->telpon",
 								'no_hp' 			=> "$r->no_hp",
 								'pekerjaan' 		=> "$r->pekerjaan",
-								'gabung' 			=> "$r->gabung"
+								'gabung' 			=> "$r->gabung",
+								'no_polisi' 		=> "$r->no_polisi",
+								'no_stnk' 			=> "$r->no_stnk"
 						        );
 
 						}
-						
- 						
-						//$data['id'] 			= $r->id;
-						//$data['panggilan']  	= $r->panggilan;
-						//$data['tmp_lahir']  	= $r->tmp_lahir;
-						//$data['tgl_lahir']  	= $r->tgl_lahir;
-						//$data['gol_darah']  	= $r->gol_darah;
-						//$data['jenis_kelamin']  = $r->jenis_kelamin;
-						//$data['alamat'] 		= $r->alamat;
-						//$data['kode_pos'] 		= $r->kode_pos;
-						//$data['telpon'] 		= $r->telpon;
-						//$data['no_hp'] 			= $r->no_hp;
-						//$data['pekerjaan'] 		= $r->pekerjaan;
-						//$data['gabung'] 		= $r->gabung;
+					
 
 
 						// load view dashboard member
@@ -174,7 +163,10 @@ class member extends CI_Controller {
 								'telpon' 			=> "$r->telpon",
 								'no_hp' 			=> "$r->no_hp",
 								'pekerjaan' 		=> "$r->pekerjaan",
-								'gabung' 			=> "$r->gabung"
+								'gabung' 			=> "$r->gabung",
+								'no_polisi' 		=> "$r->no_polisi",
+								'no_stnk' 			=> "$r->no_stnk"
+
 						        );
 
 						}	
@@ -209,7 +201,7 @@ class member extends CI_Controller {
 						else {
 
 								// simpan data ke array
-								$data = array(
+										$data = array(
 								'id' 				=> "$r->id",
 								'session_nama'		=> $this->session->userdata('nama'),
 								'panggilan'  		=> "$r->panggilan",
@@ -222,7 +214,9 @@ class member extends CI_Controller {
 								'telpon' 			=> "$r->telpon",
 								'no_hp' 			=> "$r->no_hp",
 								'pekerjaan' 		=> "$r->pekerjaan",
-								'gabung' 			=> "$r->gabung"
+								'gabung' 			=> "$r->gabung",
+								'no_polisi' 		=> "$r->no_polisi",
+								'no_stnk' 			=> "$r->no_stnk"
 						        );
 
 						}	
@@ -285,17 +279,114 @@ class member extends CI_Controller {
 
 
 	public function kendaraan()
-	{
+	{		
 		
-						// retrieve session
+					// retrieve session
+						$session_id			 	= $this->session->userdata('id');
+						
+						$data['session_id'] 	= $this->session->userdata('id');
 						$data['session_nama'] 	= $this->session->userdata('nama');
 						$data['session_email'] 	= $this->session->userdata('email');
+
+							// load model untuk member
+						$this->load->model('mmember');
+						$r 	= $this->mmember->dashboard_kendaraan($session_id);
+
+						if(!$r) {
+							
+						}
+						else {
+
+								// simpan data ke array
+								$data = array(
+								'id' 				=> "$r->id",
+								'session_nama'		=> $this->session->userdata('nama'),
+								'no_polisi' 		=> "$r->no_polisi",
+								'no_stnk' 			=> "$r->no_stnk"
+						        );
+
+						}	
 
 						// load view dashboard member
 						$this->load->view('dashboard_kendaraan', $data);
 
 
 	} // akhir kendaraan
+
+
+	public function update_kendaraan()
+	{
+			// variabel entri
+			$data['session_id'] 	= $this->session->userdata('id');
+			$session_id 			= $this->session->userdata('id');
+			$no_polisi 				= $this->input->post('no_polisi');
+			$no_stnk 				= $this->input->post('no_stnk');
+			
+
+			// load tabel
+			$this->load->model('mmember');
+
+			// cek sudah ada belum 
+			$r = $this->mmember->cek_kendaraan($session_id);
+
+			if($r->id=="1") {
+
+				// update ke tabel member
+				$this->mmember->update_kendaraan($session_id,  $no_polisi, $no_stnk);
+			}
+			else {
+
+				// insert ke tabel member
+				$this->mmember->insert_kendaraan($session_id,  $no_polisi, $no_stnk);
+						
+			}
+
+				$this->session->set_flashdata('member', 'sukses');
+
+			// redirect ke halaman dashboard personal 
+			redirect('member/kendaraan','refresh');
+
+
+
+	} // akhir update_personal
+
+
+
+	public function foto()
+	{		
+		
+					// retrieve session
+						$session_id			 	= $this->session->userdata('id');
+						
+						$data['session_id'] 	= $this->session->userdata('id');
+						$data['session_nama'] 	= $this->session->userdata('nama');
+						$data['session_email'] 	= $this->session->userdata('email');
+
+							// load model untuk member
+						$this->load->model('mmember');
+						$r 	= $this->mmember->dashboard_kendaraan($session_id);
+
+						if(!$r) {
+							
+						}
+						else {
+
+								// simpan data ke array
+								$data = array(
+								'id' 				=> "$r->id",
+								'session_nama'		=> $this->session->userdata('nama'),
+								'no_polisi' 		=> "$r->no_polisi",
+								'no_stnk' 			=> "$r->no_stnk"
+						        );
+
+						}	
+
+						// load view dashboard member
+						$this->load->view('dashboard_foto', $data);
+
+
+	} // akhir kendaraan
+
 
 
 

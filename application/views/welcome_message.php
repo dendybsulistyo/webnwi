@@ -59,8 +59,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<center>
 	
 	<!-- <img src=<?php echo base_url();?>assets/images/nwi.jpg class="img-responsive img-rounded">-->
-	<h1>NakedWolves Indonesia<Br>
-  Chapter Yogyakarta<br>
+	<img src="<?php echo base_url(); ?>assets/images/logo_nwi5.png">
+  <br>
+  <h3>Naked Wolves Indonesia<Br>
+  Chapter Yogyakarta</h3>
 
 	</center>
 </div>

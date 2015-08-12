@@ -65,6 +65,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <ul class="nav navbar-nav">
             <li class="active"><a href="<?php echo base_url(); ?>index.php/member/dashboard_home">Home</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/personal">Personal</a></li>
+            <li><a href="<?php echo base_url(); ?>index.php/member/foto">Foto </a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/kendaraan">Kendaraan</a></li>
             <li><a href="<?php echo base_url(); ?>index.php/member/logout">Logout</a></li>
           </ul>
@@ -80,6 +81,58 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 <Br>
 
 
+   <?php 
+          
+          $attributes = array('class' => 'col-lg-8 form-horizontal');
+          echo form_open( 'member/update_kendaraan', $attributes); 
+          
+          // jika sudah mengisi dan sukses
+          if($this->session->flashdata('member') == 'sukses'){
+            ?>
+
+            <!-- konfirmasi sukses daftar via web -->
+            <div class="alert alert-warning fade-in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Terima Kasih !</strong> Update Data berhasil
+            </div>
+
+
+          <?php 
+            }
+            if($this->session->flashdata('member') == 'gagal'){
+              ?>
+            <!-- konfirmasi gagal -->
+            <div class="alert alert-info fade-in" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <strong>Silahkan Coba Lagi !</strong> Terima kasih
+            </div>
+
+            <?php 
+            }
+            ?>
+
+            <div class="form-group">
+            <label for="exampleInputEmail1">No Polisi </label>
+             <input type="text" name="no_polisi" class="form-control"  placeholder="AB 6117 SF" 
+                value="<?php if(isset($no_polisi)) echo $no_polisi; ?>">
+            </div>
+
+            <div class="form-group">
+            <label for="exampleInputEmail1">No STNK </label>
+             <input type="text" name="no_stnk" class="form-control" placeholder="" 
+                value="<?php if(isset($no_stnk)) echo $no_stnk; ?>">
+            </div>
+
+
+             <div class="form-group">
+            <label for="inputPassword" class="col-xs-2"></label>
+            <div class="col-xs-6">
+                <button type="submit" class="btn btn-primary">Submit </button>
+            </div>
+        </div>
+
+
+      <?php echo form_close(); ?>
 
 
 

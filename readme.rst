@@ -34,7 +34,7 @@ Screen Shoot
 ********************
 
 Home Page
-[alt tag] https://github.com/dendybsulistyo/webnwi/blob/master/sc1.png
+![alt tag] https://github.com/dendybsulistyo/webnwi/blob/master/sc1.png
 
 Registration Page
-[alt tag] https://github.com/dendybsulistyo/webnwi/blob/master/sc2.png
+![alt tag] https://github.com/dendybsulistyo/webnwi/blob/master/sc2.png

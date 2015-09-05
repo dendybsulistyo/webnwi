@@ -113,8 +113,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
             <div class="form-group">
             <label for="exampleInputEmail1">File Scan Foto Ukuran 4x6 ( 150x200 pixel )</label>
-             <input type="file" name="no_polisi" class="form-control"  placeholder="" 
-                value="<?php if(isset($file_foto)) echo $file_foto; ?>">
+             <input type="file" name="userfile" size="20" />
             </div>
 
 

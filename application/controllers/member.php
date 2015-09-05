@@ -389,6 +389,27 @@ class member extends CI_Controller {
 
 
 
+	function update_foto()
+	{
+	$config['upload_path'] = "../../foto/";
+	$config['allowed_types'] = 'gif|jpg|png';
+	$config['max_size']    = '100000';
+	$config['max_width']  = '200';
+	$config['max_height']  = '300';
+	$this->load->library('upload', $config);
+	$this->upload->initialize($config);
+	if ( ! $this->upload->do_upload())
+	{
+	$error = array('error' => $this->upload->display_errors());
+	$this->load->view('dashboard_foto', $error);
+	}
+	else
+	{
+	$data = array('upload_data' => $this->upload->data());
+	$this->load->view('dashboard_foto', $data);
+	}
+	}
+
 
 
 

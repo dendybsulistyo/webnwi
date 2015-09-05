@@ -98,7 +98,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         foreach ($r->result() as $row) {  
         echo "<tr>
                 <td>".$no.
-              "<td>".strtoupper($row->nama)."</td>
+              "<td>";
+        
+        if(isset($row->file_foto)) {
+          echo "<img width=60 height=70 src=../../foto/$row->file_foto> &nbsp;";
+          }
+          else {
+          echo "<img width=60 height=70 src=../../foto/avatar.jpg> &nbsp;";   
+          }
+
+        echo strtoupper($row->nama)."</td>
               <td>$row->tgl_daftar</td>
               </tr>";
           $no=$no+1;

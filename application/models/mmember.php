@@ -204,7 +204,11 @@ class mmember extends CI_Model
 
 	// list member
 	function list_member() {
-		$r = $this->db->query("select nama,tgl_daftar from registrasi order by nama");
+		$r = $this->db->query("select a.nama, a.`tgl_daftar`, b.file_foto
+								from registrasi a
+								left join foto b
+								on a.id = b.id
+								");
 
 		return $r;
 	}	

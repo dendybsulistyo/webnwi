@@ -49,11 +49,15 @@ class mmember extends CI_Model
 									a.pekerjaan,
 									a.gabung,
 									b.no_stnk,
-									b.no_polisi
-								 from member a, kendaraan b 
+									b.no_polisi,
+									c.file_foto
+									
+								 from member a, kendaraan b, foto c
 								 where 
 								 a.id=b.id and  
-								 a.id='$session_id' ");
+								 a.id='$session_id' and 
+								 c.id='$session_id' 
+								 ");
 
 
 		return $r->row();
@@ -158,6 +162,44 @@ class mmember extends CI_Model
 
 		return $r->row();
 	}
+
+
+
+	// ketemu 1 atau tidak
+	function cek_foto($session_id) {
+		$r = $this->db->query("select count(id) as id from foto where id='$session_id' ");
+
+		return $r->row();
+	}
+
+
+	//// update data foto
+	function update_foto($session_id, $nama_file)  
+	{
+
+		// entry data 
+		$this->db->query("update foto set 
+								file_foto='$nama_file'
+								where 
+								id='$session_id' ");
+
+		}
+
+
+	//// insert data foto
+	function insert_foto($session_id, $nama_file) 
+	{ 
+		
+		// entry data ke tabel foto
+		$this->db->query("insert into foto(id, file_foto) 
+							values 
+							('$session_id', '$nama_file') ");
+
+		}
+
+
+
+
 
 
 	// list member

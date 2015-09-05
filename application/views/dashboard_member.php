@@ -112,6 +112,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             }
             ?>
   
+
+    <div class="form-group">
+    <label class="col-sm-2 control-label">Foto</label>
+    <div class="col-sm-10">
+      <p class="form-control-static"><?php if(isset($file_foto)) echo "<img width=100 height=120 src=../../foto/$file_foto>"; ?></p>
+    </div>
+  </div>
+
   <div class="form-group">
     <label class="col-sm-2 control-label">Nama</label>
     <div class="col-sm-10">

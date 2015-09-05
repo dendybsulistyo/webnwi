@@ -84,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
    <?php 
           
           $attributes = array('class' => 'col-lg-8 form-horizontal');
-          echo form_open( 'member/update_foto', $attributes); 
+          echo form_open_multipart( 'member/update_foto', $attributes); 
           
           // jika sudah mengisi dan sukses
           if($this->session->flashdata('member') == 'sukses'){
@@ -112,9 +112,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             ?>
 
             <div class="form-group">
-            <label for="exampleInputEmail1">File Scan Foto Ukuran 4x6 ( 150x200 pixel )</label>
+            <label for="exampleInputEmail1">File Scan Foto Ukuran 4x6 ( 200x300 pixel )</label>
              <input type="file" name="userfile" size="20" />
             </div>
+
+            <?php 
+              if(isset($error)) {
+                echo $error;
+              }
+            ?>
+
 
 
              <div class="form-group">

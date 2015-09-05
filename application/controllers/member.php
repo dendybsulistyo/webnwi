@@ -165,7 +165,8 @@ class member extends CI_Controller {
 								'pekerjaan' 		=> "$r->pekerjaan",
 								'gabung' 			=> "$r->gabung",
 								'no_polisi' 		=> "$r->no_polisi",
-								'no_stnk' 			=> "$r->no_stnk"
+								'no_stnk' 			=> "$r->no_stnk",
+								'file_foto' 		=> "$r->file_foto"
 
 						        );
 
@@ -391,25 +392,57 @@ class member extends CI_Controller {
 
 	function update_foto()
 	{
-	$config['upload_path'] = "../../foto/";
-	$config['allowed_types'] = 'gif|jpg|png';
-	$config['max_size']    = '100000';
-	$config['max_width']  = '200';
-	$config['max_height']  = '300';
-	$this->load->library('upload', $config);
-	$this->upload->initialize($config);
-	if ( ! $this->upload->do_upload())
-	{
-	$error = array('error' => $this->upload->display_errors());
-	$this->load->view('dashboard_foto', $error);
-	}
-	else
-	{
-	$data = array('upload_data' => $this->upload->data());
-	$this->load->view('dashboard_foto', $data);
-	}
-	}
 
+		// variabel entri
+		$data['session_id'] 	= $this->session->userdata('id');
+		$session_id 			= $this->session->userdata('id');
+		
+		
+		$config['upload_path'] = './foto/';
+		$config['allowed_types'] = 'gif|jpg|png';
+		$config['max_size']    = '100000';
+		$config['max_width'] = '800';
+		$config['max_height'] = '600';
+
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+
+
+			if($this->upload->do_upload('userfile'))
+			{
+
+			$data = array('upload_data' => $this->upload->data('userfile'));
+
+					// ambil nama file
+					$upload_data = $this->upload->data();
+					$nama_file = $upload_data['file_name'];
+
+					// load model untuk member
+					$this->load->model('mmember');
+
+					// cek sudah ada belum 
+					$r = $this->mmember->cek_foto($session_id);
+					if($r->id=="1") {
+
+						// update ke tabel foto
+						$this->mmember->update_foto($session_id, $nama_file);
+					}
+					else {
+
+						// insert ke tabel foto
+						$this->mmember->insert_foto($session_id, $nama_file);
+								
+					}
+
+			$this->load->view('dashboard_foto',$data);
+			}
+
+			else
+			{
+			$error = array('error' => $this->upload->display_errors());
+			$this->load->view('dashboard_foto', $error);
+			}
+    }
 
 
 

@@ -45,13 +45,17 @@ class member extends CI_Controller {
 
 	public function auth()
 	{
+
+
+
+
+
 		// variabel input form login 	
 		$email 		= $this->input->post('email');
 		$password 	= md5($this->input->post('password'));
 
 		// load model untuk member
 		$this->load->model('mmember');
-
 		$r 				= $this->mmember->cek_auth($email, $password);
 		
 		// data untuk disimpan ke session
@@ -78,6 +82,7 @@ class member extends CI_Controller {
 						$data['session_id'] 	= $this->session->userdata('id');
 						$data['session_nama'] 	= $this->session->userdata('nama');
 						$data['session_email'] 	= $this->session->userdata('email');
+						$session_nama		 	= $this->session->userdata('nama');
 
 
 						// load model untuk member
@@ -91,6 +96,8 @@ class member extends CI_Controller {
 
 								// simpan data ke array
 								$data = array(
+
+								'session_id' 		=> $this->session->userdata('id'),
 								'id' 				=> "$r->id",
 								'session_nama'		=> $this->session->userdata('nama'),
 								'panggilan'  		=> "$r->panggilan",
@@ -105,12 +112,12 @@ class member extends CI_Controller {
 								'pekerjaan' 		=> "$r->pekerjaan",
 								'gabung' 			=> "$r->gabung",
 								'no_polisi' 		=> "$r->no_polisi",
-								'no_stnk' 			=> "$r->no_stnk"
+								'no_stnk' 			=> "$r->no_stnk",
+								'file_foto' 		=> "$r->file_foto"
 						        );
 
 						}
 					
-
 
 						// load view dashboard member
 						$this->load->view('dashboard_member', $data);
@@ -139,6 +146,8 @@ class member extends CI_Controller {
 						$data['session_id'] 	= $this->session->userdata('id');
 						$data['session_nama'] 	= $this->session->userdata('nama');
 						$data['session_email'] 	= $this->session->userdata('email');
+
+
 
 						// load model untuk member
 						$this->load->model('mmember');
